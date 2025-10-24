@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhinav Startup Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Global Styles */
+:root {
+  --primary:#4CAF50;
+  --secondary:#81C784;
+  --text:#333;
+  --bg:#f9f9f9;
+  --bg-dark:#121212;
+  --text-dark:#f1f1f1;
+}
+body { font-family:'Roboto', sans-serif; margin:0; background:var(--bg); color:var(--text); scroll-behavior:smooth; transition:background 0.5s, color 0.5s; }
+a { text-decoration:none; color:inherit; }
+section { padding:100px 20px; text-align:center; opacity:0; transform:translateY(20px); transition:1s; }
+section.active { opacity:1; transform:translateY(0); }
+
+/* Header */
+header {
+  position:fixed; top:0; width:100%; background:var(--primary); color:white;
+  display:flex; justify-content:space-between; align-items:center; padding:15px 30px; z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+header h1 { font-size:24px; font-weight:700; }
+nav a { margin-left:20px; font-weight:600; transition:0.3s; }
+nav a:hover, nav a.active { color:#ffe600; }
+.toggle-btn {margin-right: 50px; cursor:pointer; padding:5px 10px; border-radius:5px; background:white; color:var(--primary); font-weight:bold; }
+
+/* Hero */
+.hero { height:100vh; display:flex;  justify-content:center; align-items:center; text-align:center; background:linear-gradient(135deg,var(--primary),var(--secondary)); color:white; gap:30px; }
+.hero-text h1 { font-size:48px; margin-bottom:20px; }
+.hero-text p { font-size:20px; margin-bottom:30px; }
+.hero-text button { padding:12px 25px; font-size:18px; border:none; background:#ffe600; color:#333; border-radius:5px; cursor:pointer; transition:0.3s; }
+.hero-text button:hover { transform:scale(1.05); background:#ffea00; }
+.hero-image img { width:250px; height:250px; border-radius:50%; object-fit:cover; border:5px solid white; box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+
+/* About */
+#about{ 
+    margin-top: 20px;
+    border: 1px solid black;
+}
+#about p { max-width:700px; margin:0 auto; }
+
+/* Skills */
+#skills  { 
+    margin-top: 20px; 
+    border: 1px solid black;
+}
+.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:30px; }
+.skill { background:#fff; padding:15px 20px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); font-weight:bold; }
+
+/* Startup Showcase */
+.showcase { border: 1px solid black; border-radius: 5px; display:flex; flex-wrap:wrap; justify-content:center; gap:40px; margin-top:30px; align-items:center; }
+.showcase-text { max-width:400px; text-align:left; }
+.showcase-text h3 { color:var(--primary); margin-bottom:10px; }
+.showcase-image img { width:300px; height:auto; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.2); transition:0.3s; }
+.showcase-image img:hover { transform:scale(1.05); }
+
+/* Contact */
+.contact a { display:inline-block; margin:10px; padding:10px 20px; background:var(--primary); color:white; border-radius:5px; transition:0.3s; }
+.contact a:hover { background:#388E3C; }
+
+/* Footer */
+footer { text-align:center; padding:20px; background:#333; color:white; }
+
+/* Responsive */
+@media(max-width:992px){ .hero { height:auto; padding:80px 20px; } .hero-text h1 { font-size:36px; } .hero-image img { width:200px; height:200px; } .showcase { flex-direction:column; text-align:center; } .showcase-text { text-align:center; } }
+
+/* Dark Mode */
+body.dark { background:var(--bg-dark); color:var(--text-dark); }
+body.dark #about{
+    border: 1px solid white;
+}
+body.dark header { background:#1b5e20; }
+body.dark #skils{
+    border: 1px solid white;
+}
+body.dark .skill { background:#222; color:#f1f1f1; }
+body.dark .showcase  { border-color: white; }
+body.dark .showcase-image img { background:#222; color:#f1f1f1; }
+body.dark .contact a { background:#1b5e20; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Abhinav</h1>
+  <nav>
+    <a href="#hero" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#showcase">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="https://abhinav84094.github.io/My_Portfolio/" target="_blank">Portfolio</a>
+  </nav>
+  <div class="toggle-btn" onclick="toggleNightMode()">🌙</div>
+</header>
+
+<!-- Hero -->
+<section id="hero" class="hero">
+  <div class="hero-text">
+    <h1>Hi, I'm Abhinav</h1>
+    <p>MERN developer building modern and interactive web apps for startups.</p>
+    <button onclick="document.getElementById('showcase').scrollIntoView({behavior:'smooth'});">Discover Projects</button>
+    
+  </div>
+  <div class="hero-image">
+    <img src="public/abhinavImage.png" alt="Profile Image">
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am passionate about web development, learning new technologies, and creating responsive, interactive websites using modern tools like React, Node.js, and MongoDB.</p>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill">HTML & CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">React</div>
+    <div class="skill">Node.js & MongoDB</div>
+  </div>
+</section>
+
+<!-- Startup Showcase -->
+<section id="showcase">
+  <h2>Project Showcase</h2>
+  <div class="showcase" >
+    <div class="showcase-text">
+      <h3>My First Product</h3>
+      <p>This project is a modern landing page for startups, demonstrating interactive UI, responsive design, and professional presentation.</p>
+      <ul>
+        <li>Interactive hero section</li>
+        <li>Responsive layout for all devices</li>
+        <li>Night mode toggle</li>
+        <li>Professional showcase of projects</li>
+      </ul>
+    </div>
+    <div class="showcase-image">
+      <img src="public/landing_page_ss.png" alt="Startup Product Image">
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="contact">
+    <a href="mailto:abhinav84094@gmail.com" target="_blank">Email Me</a>
+    <a href="https://www.linkedin.com/in/abhinav-prakash-4499b62a7/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/abhinav84094" target="_blank">GitHub</a>
+  </div>
+</section>
+
+<footer>&copy; 2025 Abhinav...</footer>
+
+<script>
+// Night Mode Toggle
+function toggleNightMode() {
+  document.body.classList.toggle('dark');
+}
+
+// Scroll-triggered animations & navbar highlight
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', ()=>{
+  const trigger = window.innerHeight*0.85;
+  sections.forEach(sec=>{ if(sec.getBoundingClientRect().top < trigger) sec.classList.add('active'); });
+
+  let current = '';
+  sections.forEach(sec=>{ if(window.scrollY >= sec.offsetTop-70) current = sec.getAttribute('id'); });
+  navLinks.forEach(link=>{ link.classList.remove('active'); if(link.getAttribute('href').includes(current)) link.classList.add('active'); });
+});
+</script>
+
+</body>
+</html>
